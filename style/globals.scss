@@ -1,0 +1,33 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@function color($color-name) {
+  @return var(--clr-#{$color-name});
+}
+
+$colors: (
+  clr-green: #2afd2e,
+  clr-yellow: #fcfd5b,
+  clr-red: #fe0065,
+  clr-purple: #7304ff,
+);
+
+:root {
+  // each item in color map
+  @each $name, $color in $colors {
+    --#{$name}: #{$color};
+  }
+}
+
+html,
+body {
+  //   padding: 0;
+  //   margin: 0;
+  font-family: Barlow, sans-serif;
+}
+
+button {
+  color: rgb(55, 152, 197);
+  text-decoration: underline;
+}

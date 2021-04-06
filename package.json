@@ -1,22 +1,61 @@
 {
   "name": "with-typescript",
+  "homepage": "./",
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "lint:scss": "stylelint 'src/scss/**/*.scss'",
+    "lint:scss:fix": "stylelint 'src/scss/**/*.scss' --fix",
+    "lint:js": "eslint . --ext .js,.jsx,ts,tsx",
+    "lint:js:fix": "npm run lint:js -- --fix",
+    "sb": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "next": "latest",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
   },
   "devDependencies": {
-    "@types/node": "^12.12.21",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
-    "typescript": "4.0"
+    "@babel/core": "^7.13.14",
+    "@storybook/addon-actions": "^6.2.2",
+    "@storybook/addon-essentials": "^6.2.2",
+    "@storybook/addon-links": "^6.2.2",
+    "@storybook/builder-webpack5": "^6.2.2",
+    "@storybook/react": "^6.2.2",
+    "@tailwindcss/jit": "^0.1.18",
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.0",
+    "eslint": "^7.23.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "postcss": "^8.2.9",
+    "postcss-import": "^14.0.1",
+    "postcss-loader": "^5.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^2.2.1",
+    "sass": "^1.32.8",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "stylelint": "^13.12.0",
+    "stylelint-config-recommended": "^4.0.0",
+    "stylelint-prettier": "^1.2.0",
+    "tailwindcss": "^2.0.4",
+    "typescript": "^4.2.3"
   },
   "license": "MIT"
 }

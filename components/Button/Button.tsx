@@ -1,5 +1,4 @@
 import React, { ButtonHTMLAttributes } from 'react'
-import './button.css'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
@@ -9,7 +8,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * What background color to use
    */
-  bg?: string
+  backgroundColor?: string
   /**
    * How large should the button be?
    */
@@ -30,7 +29,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button: React.FC<ButtonProps> = ({
   primary = false,
   size = 'medium',
-  bg,
+  backgroundColor,
   label,
   ...props
 }) => {
@@ -43,7 +42,7 @@ export const Button: React.FC<ButtonProps> = ({
       className={['storybook-button', `storybook-button--${size}`, mode].join(
         ' '
       )}
-      style={{ backgroundColor: bg }}
+      style={{ backgroundColor }}
       {...props}
     >
       {label}

@@ -7,31 +7,49 @@ export default {
   title: 'Example/Button',
   component: Button,
   argTypes: {
-    backgroundColor: { control: 'color' },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
+    color: {
+      control: {
+        type: 'radio',
+        options: ['purple', 'gray'],
+      },
+    },
   },
 } as Meta
 
-const Template: Story<ButtonProps> = (args) => <Button {...args} />
+const Template: Story<ButtonProps> = (args) => (
+  <Button color="purple" {...args} />
+)
 
-export const Primary = Template.bind({})
-Primary.args = {
-  primary: true,
+export const Normal = Template.bind({})
+Normal.args = {
   label: 'Button',
 }
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  label: 'Button',
+export const Disabled = Template.bind({})
+Disabled.args = {
+  label: 'Disabled',
+  disabled: true,
 }
 
-export const Large = Template.bind({})
-Large.args = {
-  size: 'large',
+export const Loading = Template.bind({})
+Loading.args = {
   label: 'Button',
+  loading: true,
 }
 
-export const Small = Template.bind({})
-Small.args = {
-  size: 'small',
-  label: 'Button',
+export const Purple = Template.bind({})
+Purple.args = {
+  label: 'Purple',
+  color: 'purple',
+}
+
+export const Gray = Template.bind({})
+Gray.args = {
+  label: 'Gray',
+  color: 'gray',
 }

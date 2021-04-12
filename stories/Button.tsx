@@ -1,7 +1,11 @@
+import classNames from 'classnames'
 import React, { ButtonHTMLAttributes } from 'react'
-import './button.css'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Define button behavior. Default: button
+   */
+  type?: 'button' | 'submit' | 'reset'
   /**
    * Is this the principal call to action on the page?
    */
@@ -9,7 +13,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * What background color to use
    */
-  bg?: string
+  color?: string
   /**
    * How large should the button be?
    */
@@ -19,34 +23,42 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   label: string
   /**
+   * Button contents
+   */
+  loading?: boolean
+  /**
    * Optional click handler
    */
   onClick?: () => void
 }
-
+const buttonStyles = {
+  base:
+    'text-xl font-semibold border-2 text-center focus:outline-none rounded-full uppercase px-7 py-3 mx-auto block',
+}
 /**
  * Primary UI component for user interaction
  */
 export const Button: React.FC<ButtonProps> = ({
-  primary = false,
-  size = 'medium',
-  bg,
+  color = 'purple',
   label,
+  loading,
+  type = 'submit',
   ...props
 }) => {
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary'
+  const clrPurple = {
+    'text-purple-400': color === 'purple',
+    'border-purple-400': color === 'purple',
+    'text-gray-400': color === 'gray',
+    'border-gray-400': color === 'gray',
+  }
+
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
-        ' '
-      )}
-      style={{ backgroundColor: bg }}
+      type={type}
+      className={classNames(buttonStyles.base, clrPurple)}
       {...props}
     >
-      {label}
+      {loading ? '...loading' : label}
     </button>
   )
 }
